@@ -1,4 +1,3 @@
-.dropdownMenu{
-    display: flex;
-    justify-content: space-evenly;
+.destinationsMenu{
+    margin: 2rem 0px;
 }

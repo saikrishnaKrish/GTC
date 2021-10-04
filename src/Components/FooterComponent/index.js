@@ -1,10 +1,10 @@
 import React from 'react'
-
+import './FooterComponentStyles.css'
 function FooterComponent() {
     return (
-        <div>
+        <footer >
             Coding problem -www.greektrust.in/findingfalcone
-        </div>
+        </footer>
     )
 }
 

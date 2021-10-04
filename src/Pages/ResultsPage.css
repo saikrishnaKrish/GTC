@@ -1,0 +1,10 @@
+.resultsContainer {
+    padding: 0px 15px;
+}
+.resultsContainer > div {
+    font-weight: 400;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

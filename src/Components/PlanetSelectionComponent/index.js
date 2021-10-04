@@ -6,33 +6,31 @@ import { withGlobalContext } from '../../Context/GlobalContextProvider';
 class PlanetSelectionComponent extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
-            selectedOption :this.props.selectedOption || ''
+            selectedOption: this.props.selectedOption || ''
         }
     }
-    
-    handleChange= (option)=>{
+
+    handleChange = (option) => {
         const { selectedOption } = this.state;
         this.setState({ selectedOption: option })
-    console.log(this.props)
         this.props.planetChangeHandler(option, selectedOption);
     }
     render() {
         const { planets, selectedDataObj } = this.props;
         const { selectedOption } = this.state;
-        const options = (planets ? planets : []).map(planet =>
-        {
+        const options = (planets ? planets : []).map(planet => {
             const name = planet.name;
-            const optionValue = {value: name, label: name};
-            return name in selectedDataObj ? {isDisabled: true, ...optionValue}  : optionValue;
+            const optionValue = { value: name, label: name };
+            return name in selectedDataObj ? { isDisabled: true, ...optionValue } : optionValue;
         });
         return (
             <div>
-                    <Select value={selectedOption} options={options} onChange={this.handleChange} />
+                <Select value={selectedOption} options={options} onChange={this.handleChange} />
             </div>
         )
     }
 }
 
-export default  withGlobalContext(PlanetSelectionComponent)
+export default withGlobalContext(PlanetSelectionComponent)
