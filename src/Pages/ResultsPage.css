@@ -1,0 +1,25 @@
+.resultsContainer {
+    padding: 0px 15px;
+}
+.resultsContainer > div {
+    font-weight: 400;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loadingText {
+    width: 50px;
+}
+.failureMessage {
+    color: red;
+}
+.successMessage {
+    color: green;
+}
+.startAgain {
+    text-align: center;
+}
+.resultsContainer {
+    padding: 0px 15px;
+}
