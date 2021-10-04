@@ -51,7 +51,7 @@ class ResultsPage extends Component {
         contextActions.updateGlobalState({selectedDataObj: {}, vehicles});
         this.setState({isRedirected: true});
     }
-    async componentDidMount() {
+    async componentWillMount() {
         console.log(this.props)
         // const { selectedDataObj, token } = this.props;
         // console.log(selectedDataObj)
