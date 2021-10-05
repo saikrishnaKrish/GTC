@@ -29,7 +29,7 @@ function HomePage(props) {
                 <Container className="mt-4">
                     <Row className="destinationsMenu">
                         <h5>Select Planets you want to search in: </h5>
-                        {destinations.map((index) => <Col><EntityBlockComponent key={index} /></Col>)}
+                        {destinations.map((index) => <Col key={index}><EntityBlockComponent key={index} /></Col>)}
                         <Col><TimeTakenComponent /></Col>
                     </Row>
                 </Container>

@@ -13,8 +13,7 @@ import "./VehicleSelectionComponentStyle.css";
  * @returns Selected Vehicle from available vehicles
  */
 function SelectVehicle(props) {
-  const { className, name, isDisabled, availableVehicleCount, totalVehicles } =
-    props;
+  const { className, name, isDisabled, availableVehicleCount, totalVehicles } =  props;
 
   return (
     <div className={className} key={name}>

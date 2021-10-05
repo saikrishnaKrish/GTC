@@ -112,7 +112,9 @@ function getVehicleSpeed(vehiclesArray, vehicle, defaultValue = 0) {
     return getValueByKey(findByName(vehiclesArray, vehicle), 'speed', defaultValue);
 }
 
-export default {
+
+
+const utilites = {
     BASE_URL,
     DESTINATION_COUNT,
     isValidObject,
@@ -125,4 +127,6 @@ export default {
     getVehicleSpeed
 }
 
+
+export default utilites;
 
