@@ -22,8 +22,9 @@ class PlanetSelectionComponent extends Component {
   handleChange = (option) => {
     const { selectedOption } = this.state;
     this.setState({ selectedOption: option });
-    this.props.planetChangeHandler(option, selectedOption);
+    this.props.planetChangeHandler(option,selectedOption);
   };
+  
   render() {
     const { planets, selectedDataObj } = this.props;
     const { selectedOption } = this.state;

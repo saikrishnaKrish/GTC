@@ -67,7 +67,7 @@ function getValueByKey(object, key, defaultValue) {
  */
 function filterByValue(valueArray, value) {
     if (!valueArray) return [];
-    return valueArray.filter(v => v === value);
+     return valueArray.filter(v => v === value);
 }
 
 

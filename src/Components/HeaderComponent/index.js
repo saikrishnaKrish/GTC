@@ -12,7 +12,7 @@ import { withGlobalContext } from "../../Context/GlobalContextProvider";
  *
  * @renders the Navbar on the Screen
  */
-function HeaderComponent() {
+function HeaderComponent(props) {
   return (
     <div>
       <Navbar color="light" light expand="md">
@@ -22,6 +22,7 @@ function HeaderComponent() {
         <Nav className="ml-auto" navbar>
           <NavItem>
             <span>Front End coding Challenge!!</span>
+            {/* <span><button>RESET</button></span> */}
             <span>|</span>
             <span>
               <Link

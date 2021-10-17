@@ -1,10 +1,12 @@
 import React from 'react'
 
+import { withGlobalContext } from '../../Context/GlobalContextProvider'
+
  function ErrorPage(props) {
     return (
         <div >
-            {props.error}
+           Unable to view page!!! {props.error}
         </div>
     )
 }
-export default ErrorPage
+export default withGlobalContext(ErrorPage)

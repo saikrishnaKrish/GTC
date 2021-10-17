@@ -21,12 +21,7 @@ function DetailsRow(props) {
 
 function PlanetDetailsPanel(props) {
   const { distance } = props;
-  return distance ? (
-    <DetailsRow
-      label={"Distance"}
-      value={distance}
-    />
-  ) : null;
+  return distance ? <DetailsRow label={"Distance"} value={distance} /> : null;
 }
 
 function VehicleDetailsPanel(props) {
@@ -35,11 +30,8 @@ function VehicleDetailsPanel(props) {
 
   const { name, max_distance, speed } = vehicle;
   return (
-    <div >
-      <DetailsRow
-        label={"Name"}
-        value={name}
-      />
+    <div>
+      <DetailsRow label={"Name"} value={name} />
       <DetailsRow label={"Max Distance"} value={max_distance} />
       <DetailsRow label={"Speed"} value={speed} />
     </div>
@@ -49,7 +41,6 @@ function VehicleDetailsPanel(props) {
 export class EntityBlockComponent extends Component {
   constructor(props) {
     super(props);
-
     this.state = {};
     this.selectPlanet = this.selectPlanet.bind(this);
     this.selectVehicle = this.selectVehicle.bind(this);
@@ -59,11 +50,11 @@ export class EntityBlockComponent extends Component {
     const { selectedDataObj, planets, contextActions, vehicles } = this.props;
     const selectedPlanet = chosenOption.value;
     const distance = Utils.getPlanetDistance(planets, selectedPlanet);
+
     selectedDataObj[selectedPlanet] = undefined;
     if (prevOption) {
       delete selectedDataObj[prevOption.value];
     }
-
     this.recalculateVehicleAvailability(selectedDataObj, vehicles);
     contextActions.updateGlobalState({ selectedDataObj, vehicles });
     this.setState({ selectedPlanet, distance, selectedVehicle: undefined });
@@ -78,15 +69,16 @@ export class EntityBlockComponent extends Component {
       selectedVehicle: Utils.findByName(vehicles, selectedVehicle),
     });
     contextActions.updateGlobalState({ selectedDataObj, vehicles });
+
   }
 
   recalculateVehicleAvailability = (selectedObj, vehicles) => {
     const vehiclesSelected = Object.values(selectedObj);
-
     return vehicles.map((vehicle) => {
       const totalSelected = Utils.size(
         Utils.filterByValue(vehiclesSelected, vehicle.name)
       );
+
       vehicle.availble_no =
         vehicle.total_no - (totalSelected ? totalSelected : 0);
       return vehicle;
@@ -97,7 +89,7 @@ export class EntityBlockComponent extends Component {
     const { selectedPlanet, distance, selectedVehicle } = this.state;
 
     return (
-      <div >
+      <div>
         <PlanetSelectionComponent
           {...this.props}
           planetChangeHandler={this.selectPlanet}
