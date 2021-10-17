@@ -1,20 +1,17 @@
 import './App.css';
 
 //importing components
-import RoutingComponent from './Components/RouterComponent'
-import ErrorPage from './Components/ErrorPageComponent'
+import HomeComponent from './Components/HomeComponent.js';
 
-//importing GlobalContext to pass params over child componenents
-import {withGlobalContext} from './Context/GlobalContextProvider'
+import GlobalContextProvider from './Context/GlobalContextProvider';
 
-function App(props) {
+function App() {
   return (
     <div className="App">
-      <div className={'dataContainer'}>
-                {props.error ? <ErrorPage {...props}/> : <RoutingComponent /> }
-            </div>
-
+    <GlobalContextProvider>
+      <HomeComponent/>
+    </GlobalContextProvider>
     </div>
   );
 }
-export default withGlobalContext(App);
+export default App;

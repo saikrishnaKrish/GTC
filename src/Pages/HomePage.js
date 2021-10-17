@@ -9,11 +9,11 @@ import EntityBlockComponent from '../Components/EntityBlockComponent/EntityBlock
 import FindFalcone from '../Components/FindFalconeComponent';
 //utils
 import { DESTINATION_COUNT } from '../Utils/Utils'
-import {Row, Col,Container} from 'reactstrap';
+import {Row,Col,Container} from 'reactstrap';
 //styles
 import './HomePage.css';
 
-
+//creates the destinations based on the DESTINATION_COUNT
 const destinations = Array.from(Array(DESTINATION_COUNT).keys())
 /**
  * @function {function} HomePage 
@@ -29,7 +29,7 @@ function HomePage(props) {
                 <Container className="mt-4">
                     <Row className="destinationsMenu">
                         <h5>Select Planets you want to search in: </h5>
-                        {destinations.map((index) => <Col><EntityBlockComponent key={index} /></Col>)}
+                        {destinations.map((index) => <Col key={index}><EntityBlockComponent key={index} /></Col>)}
                         <Col><TimeTakenComponent /></Col>
                     </Row>
                 </Container>

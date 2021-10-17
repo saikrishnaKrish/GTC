@@ -13,13 +13,11 @@ import "./VehicleSelectionComponentStyle.css";
  * @returns Selected Vehicle from available vehicles
  */
 function SelectVehicle(props) {
-  const { className, name, isDisabled, availableVehicleCount, totalVehicles } =
-    props;
+  const { className, name, isDisabled, availableVehicleCount, totalVehicles } =  props;
 
   return (
     <div className={className} key={name}>
-      <Radio value={name} disabled={isDisabled} /> {name} (
-      {availableVehicleCount}/{totalVehicles})
+      <Radio value={name} disabled={isDisabled} /> {name} ({availableVehicleCount}/{totalVehicles})
     </div>
   );
 }
@@ -35,10 +33,8 @@ function VehicleSelectionComponent(props) {
   const radioOptions = (planet != null ? vehicles : []).map((vehicle) => {
     const name = vehicle.name;
     const totalVehicles = vehicle.total_no;
-    const availableVehicleCount =
-      vehicle.availble_no !== undefined ? vehicle.availble_no : totalVehicles;
-    const isDisabled =
-      distance > vehicle.max_distance || availableVehicleCount === 0;
+    const availableVehicleCount = vehicle.availble_no !== undefined ? vehicle.availble_no : totalVehicles;
+    const isDisabled = distance > vehicle.max_distance || availableVehicleCount === 0;
     const className = isDisabled ? "disabledLabel" : "";
 
     return (

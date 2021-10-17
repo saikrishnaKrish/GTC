@@ -8,7 +8,9 @@ const { BASE_URL } = Utils;
 export const withGlobalContext = (Component) => (props) =>
   (
     <GlobalContext.Consumer>
-      {(contextProps) => <Component {...contextProps} {...props} />}
+      {(contextProps) =>{
+     return <Component {...contextProps} {...props} />
+      }}
     </GlobalContext.Consumer>
   );
 
@@ -25,13 +27,18 @@ export class GlobalContextProvider extends Component {
     this.state = {
       planets: [],
       vehicles: [],
+      error:'',
       selectedDataObj: {},
       contextActions: {
         updateGlobalState: this.updateGlobalState.bind(this),
         updateSelectedData: this.updateSelectedData.bind(this),
       },
     };
+        
   }
+
+
+
 
   /**
    * Based on the params it will make an api call to the server and returns the 
@@ -50,7 +57,7 @@ export class GlobalContextProvider extends Component {
       this.setState({ [type]: data });
     } catch {
       this.setState({
-        error: "Error while fetching data from Server" + type + "!!!",
+        error: "Error while fetching data from Server" + type + " !!!",
       });
     }
   };
@@ -88,6 +95,7 @@ export class GlobalContextProvider extends Component {
       method: "POST",
       headers: Utils.requestHeadersForJsonContent(),
     });
+   
   };
 
   render() {
